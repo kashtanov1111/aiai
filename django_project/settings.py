@@ -169,11 +169,14 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 SITE_ID = 1
 
+# REST API Schema Settings
 SPECTACULAR_SETTINGS = {
     "TITLE": "AiAi API Project",
     "DESCRIPTION": "A sample blog to learn about DRF",
     "VERSION": "1.0.0",
 }
+
+OPENAI_API_KEY = env("OPENAI_API_KEY")
 
 
 # Authentication
