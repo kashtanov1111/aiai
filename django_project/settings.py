@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "drf_spectacular",
     # Local
     "accounts.apps.AccountsConfig",
     "posts.apps.PostsConfig",
@@ -168,6 +169,13 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 SITE_ID = 1
 
+SPECTACULAR_SETTINGS = {
+    "TITLE": "AiAi API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+}
+
+
 # Authentication
 
 
@@ -187,6 +195,7 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "dj_rest_auth.jwt_auth.JWTCookieAuthentication",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 REST_AUTH = {
@@ -201,8 +210,8 @@ REST_AUTH = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=10),
-    "REFRESH_TOKEN_LIFETIME": timedelta(seconds=60),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=24),
+    # "REFRESH_TOKEN_LIFETIME": timedelta(seconds=60),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
 }

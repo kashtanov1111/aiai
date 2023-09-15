@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from accounts.authentication.views import (
+from .views import (
     CustomLoginView,
     CustomLogoutView,
     CustomRegisterView,
